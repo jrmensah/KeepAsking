@@ -4,13 +4,15 @@ public class SomethingAboutYou {
     public static void main(String args[]){
 
         Scanner sc =new Scanner(System.in);
-        String prompt = "Would you like to continue?";
         String input;
 
         String firstName;
         int age;
         String height;
         double gpa;
+
+        do
+        {
 
         System.out.println("What is your first name?");
         firstName = sc.next();
@@ -24,25 +26,24 @@ public class SomethingAboutYou {
         System.out.println("What is your GPA?");
         gpa = sc.nextDouble();
 
-        //Prompt the user if they want to continue
-        do
-        {
-            System.out.println("Do you want to continue?");
-            input= sc.nextLine();
+        System.out.println("First Name:" +firstName+ "Age:" +age+ "Height:" +height+ "GPA:"+gpa);
 
-            //User inputs value that is not 'Y' or 'N'
-            if((!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n")))
-            {
-                System.out.println("Invalid entry! Please type Y or N");
-                System.out.println("Do you want to continue?");
+        //Prompt the user if they want to continue
+
+            System.out.println("Do you want to continue?");
+            input= sc.next();
+            if(!input.equalsIgnoreCase("y") && !input.equalsIgnoreCase("n")){
+                System.out.println("");
+            }
+            if(input.equalsIgnoreCase("n")){
+                System.out.println("Thank you!");
             }
 
             sc.nextLine();
             System.out.println("");
 
-        }while((input.equalsIgnoreCase("y")&& !input.equalsIgnoreCase("n")));
+        }while(!input.equalsIgnoreCase("n"));
 
-        System.out.println("Thank you!");
     }
 }
 
